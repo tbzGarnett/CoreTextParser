@@ -32,6 +32,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (TBZCoreTextData *)parserAttributeString:(NSAttributedString *)attString config:(TBZFrameParserConfig *)config;
 
+
+/**
+ 根据路径获取内容，添加配置信息并返回一个模型对象
+
+ @param path 文件路径
+ @param config 配置config
+ @return 模型对象
+ */
++ (TBZCoreTextData *)parserPath:(NSString *)path config:(TBZFrameParserConfig *)config;
+
 /**
  将配置信息转换成attributeString的attributeDictionary
 

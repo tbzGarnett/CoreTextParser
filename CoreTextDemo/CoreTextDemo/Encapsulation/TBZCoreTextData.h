@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TBZCoreTextData : NSObject
 @property (nonatomic, assign) CTFrameRef ctFrame;
 @property (nonatomic, assign) CGFloat height;
+
+//图文混排
+@property (strong,nonatomic)NSArray *imageArray;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -57,6 +57,62 @@
     return data;
 }
 
++ (TBZCoreTextData *)parserPath:(NSString *)path config:(TBZFrameParserConfig *)config{
+    NSAttributedString *attString = [self loadTempleteWithPath:path config:config];
+    return [self parserAttributeString:attString config:config];
+}
+
++ (NSAttributedString *)loadTempleteWithPath:(NSString *)path config:(TBZFrameParserConfig *)config{
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] init];
+    if (data) {
+        NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        if ([array isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *dic in array) {
+                NSString *type = dic[@"content"];
+                if ([dic[@"type"] isEqualToString:@"txt"]) {
+                    NSAttributedString *as = [self parseAttributeContentFromNSDictionary:dic config:config];
+                    [attString appendAttributedString:as];
+                }
+            }
+        }
+    }
+    
+    return attString;
+}
+
++ (NSAttributedString *)parseAttributeContentFromNSDictionary:(NSDictionary *)dict config:(TBZFrameParserConfig *)config{
+    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithDictionary:[self attributesWithConfig:config]];
+    
+    UIColor *color = [self colorFromTemplate:dict[@"color"]];
+    if (color) {
+        attributes[(id)kCTForegroundColorAttributeName] = (id)color.CGColor;
+    }
+    
+    CGFloat fontsize = [dict[@"size"] floatValue];
+    if (fontsize>0) {
+        CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontsize, NULL);
+        attributes[(id)kCTFontAttributeName] = (__bridge id)fontRef;
+        CFRelease(fontRef);
+    }
+    
+    NSString *content = dict[@"content"];
+    return [[NSAttributedString alloc] initWithString:content attributes:attributes];
+}
+
++(UIColor *)colorFromTemplate:(NSString *)name{
+    
+    if ([name isEqualToString:@"blue"]) {
+        return [UIColor blueColor];
+    }else if ([name isEqualToString:@"red"]){
+        return [UIColor redColor];
+    }else if ([name isEqualToString:@"black"]){
+        return [UIColor blackColor];
+    }else{
+        return nil;
+    }
+}
+
 + (NSDictionary *)attributesWithConfig:(TBZFrameParserConfig *)config{
     CGFloat fontSize = config.fontSize;
     CTFontRef fontRef = CTFontCreateWithName((CFStringRef)@"ArialMT", fontSize, NULL);
