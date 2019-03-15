@@ -28,6 +28,10 @@
 		1828E547223B8D7900AC3871 /* TBZMixedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E546223B8D7900AC3871 /* TBZMixedView.m */; };
 		1828E54A223B8F8800AC3871 /* TBZShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E549223B8F8800AC3871 /* TBZShowViewController.m */; };
 		1828E54C223B917700AC3871 /* File1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1828E54B223B917700AC3871 /* File1.json */; };
+		1828E54E223BB74500AC3871 /* File2.json in Resources */ = {isa = PBXBuildFile; fileRef = 1828E54D223BB74500AC3871 /* File2.json */; };
+		1828E552223BB81600AC3871 /* TBZCoreUrlData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E551223BB81600AC3871 /* TBZCoreUrlData.m */; };
+		1828E555223BBD0600AC3871 /* TBZUrlFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E554223BBD0600AC3871 /* TBZUrlFrameParser.m */; };
+		1828E558223BBEBE00AC3871 /* TBZUrlMixedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E557223BBEBE00AC3871 /* TBZUrlMixedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,13 @@
 		1828E548223B8F8800AC3871 /* TBZShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZShowViewController.h; sourceTree = "<group>"; };
 		1828E549223B8F8800AC3871 /* TBZShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZShowViewController.m; sourceTree = "<group>"; };
 		1828E54B223B917700AC3871 /* File1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = File1.json; sourceTree = "<group>"; };
+		1828E54D223BB74500AC3871 /* File2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = File2.json; sourceTree = "<group>"; };
+		1828E550223BB81600AC3871 /* TBZCoreUrlData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZCoreUrlData.h; sourceTree = "<group>"; };
+		1828E551223BB81600AC3871 /* TBZCoreUrlData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZCoreUrlData.m; sourceTree = "<group>"; };
+		1828E553223BBD0600AC3871 /* TBZUrlFrameParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZUrlFrameParser.h; sourceTree = "<group>"; };
+		1828E554223BBD0600AC3871 /* TBZUrlFrameParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZUrlFrameParser.m; sourceTree = "<group>"; };
+		1828E556223BBEBE00AC3871 /* TBZUrlMixedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZUrlMixedView.h; sourceTree = "<group>"; };
+		1828E557223BBEBE00AC3871 /* TBZUrlMixedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZUrlMixedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +147,7 @@
 		1828E4F4223B4A6B00AC3871 /* CoreTextDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1828E54F223BB7F500AC3871 /* UrlLink */,
 				1828E53E223B864100AC3871 /* ImageTextMix */,
 				1828E52B223B53F900AC3871 /* Encapsulation */,
 				1828E527223B4DFD00AC3871 /* Basic */,
@@ -154,6 +166,7 @@
 				1828E53B223B852700AC3871 /* kg1.jpg */,
 				1828E53A223B852700AC3871 /* kg2.jpg */,
 				1828E54B223B917700AC3871 /* File1.json */,
+				1828E54D223BB74500AC3871 /* File2.json */,
 			);
 			path = CoreTextDemo;
 			sourceTree = "<group>";
@@ -211,6 +224,19 @@
 				1828E546223B8D7900AC3871 /* TBZMixedView.m */,
 			);
 			path = ImageTextMix;
+			sourceTree = "<group>";
+		};
+		1828E54F223BB7F500AC3871 /* UrlLink */ = {
+			isa = PBXGroup;
+			children = (
+				1828E550223BB81600AC3871 /* TBZCoreUrlData.h */,
+				1828E551223BB81600AC3871 /* TBZCoreUrlData.m */,
+				1828E553223BBD0600AC3871 /* TBZUrlFrameParser.h */,
+				1828E554223BBD0600AC3871 /* TBZUrlFrameParser.m */,
+				1828E556223BBEBE00AC3871 /* TBZUrlMixedView.h */,
+				1828E557223BBEBE00AC3871 /* TBZUrlMixedView.m */,
+			);
+			path = UrlLink;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +349,7 @@
 				1828E54C223B917700AC3871 /* File1.json in Resources */,
 				1828E4FF223B4A6D00AC3871 /* Assets.xcassets in Resources */,
 				1828E4FD223B4A6B00AC3871 /* Main.storyboard in Resources */,
+				1828E54E223BB74500AC3871 /* File2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,13 +377,16 @@
 				1828E52A223B4E1500AC3871 /* TBZDisplayView.m in Sources */,
 				1828E547223B8D7900AC3871 /* TBZMixedView.m in Sources */,
 				1828E534223B69FD00AC3871 /* TBZCoreTextData.m in Sources */,
+				1828E555223BBD0600AC3871 /* TBZUrlFrameParser.m in Sources */,
 				1828E537223B719A00AC3871 /* TBZEncapsulationView.m in Sources */,
 				1828E531223B69B500AC3871 /* TBZFrameParser.m in Sources */,
 				1828E52E223B541600AC3871 /* TBZFrameParserConfig.m in Sources */,
 				1828E54A223B8F8800AC3871 /* TBZShowViewController.m in Sources */,
+				1828E558223BBEBE00AC3871 /* TBZUrlMixedView.m in Sources */,
 				1828E4FA223B4A6B00AC3871 /* ViewController.m in Sources */,
 				1828E505223B4A6D00AC3871 /* main.m in Sources */,
 				1828E4F7223B4A6B00AC3871 /* AppDelegate.m in Sources */,
+				1828E552223BB81600AC3871 /* TBZCoreUrlData.m in Sources */,
 				1828E541223B866E00AC3871 /* TBZCoreImageData.m in Sources */,
 				1828E544223B878600AC3871 /* TBZMixedFrameParser.m in Sources */,
 			);

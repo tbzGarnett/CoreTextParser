@@ -36,7 +36,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -63,6 +63,11 @@
         case 3:
         {
             cell.textLabel.text = @"图文混排";
+        }
+            break;
+        case 4:
+        {
+            cell.textLabel.text = @"加入链接";
         }
             break;
             

@@ -14,6 +14,8 @@
 #import "TBZCoreTextData.h"
 #import "TBZMixedFrameParser.h"
 #import "TBZMixedView.h"
+#import "TBZUrlFrameParser.h"
+#import "TBZUrlMixedView.h"
 
 @interface TBZShowViewController ()
 
@@ -90,6 +92,20 @@
             TBZCoreTextData *data = [TBZMixedFrameParser parseTemplateFile:path config:config];
             
             TBZMixedView *view = [[TBZMixedView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, data.height)];
+            view.center = self.view.center;
+            view.textData = data;
+            view.backgroundColor = [UIColor grayColor];
+            [self.view addSubview:view];
+        }
+            break;
+        case 4:
+        {
+            self.title = @"URL链接";
+            
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"File2" ofType:@"json"];
+            TBZCoreTextData *data = [TBZUrlFrameParser parseTemplateFile:path config:config];
+            
+            TBZUrlMixedView *view = [[TBZUrlMixedView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, data.height)];
             view.center = self.view.center;
             view.textData = data;
             view.backgroundColor = [UIColor grayColor];

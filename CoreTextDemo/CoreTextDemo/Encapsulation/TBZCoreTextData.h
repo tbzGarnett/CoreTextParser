@@ -17,7 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) CGFloat height;
 
 //图文混排
-@property (strong,nonatomic)NSArray *imageArray;
+@property (nonatomic, strong) NSArray *imageArray;
+//url数组
+@property (nonatomic, strong) NSArray *linkArray;
 @end
 
 NS_ASSUME_NONNULL_END
