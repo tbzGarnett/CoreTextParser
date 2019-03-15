@@ -126,6 +126,7 @@
         
         //获取每一行的CGRect信息
         CGRect flippedRect = [self getLineBounds:line point:linePoint];
+        //获取该行rect在self中的rect
         CGRect rect = CGRectApplyAffineTransform(flippedRect, tranform);
         
         if (CGRectContainsPoint(rect, point)) {
