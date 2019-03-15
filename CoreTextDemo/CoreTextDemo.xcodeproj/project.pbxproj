@@ -15,6 +15,11 @@
 		1828E505223B4A6D00AC3871 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E504223B4A6D00AC3871 /* main.m */; };
 		1828E50F223B4A6D00AC3871 /* CoreTextDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E50E223B4A6D00AC3871 /* CoreTextDemoTests.m */; };
 		1828E51A223B4A6D00AC3871 /* CoreTextDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E519223B4A6D00AC3871 /* CoreTextDemoUITests.m */; };
+		1828E52A223B4E1500AC3871 /* TBZDisplayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E529223B4E1500AC3871 /* TBZDisplayView.m */; };
+		1828E52E223B541600AC3871 /* TBZFrameParserConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E52D223B541600AC3871 /* TBZFrameParserConfig.m */; };
+		1828E531223B69B500AC3871 /* TBZFrameParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E530223B69B500AC3871 /* TBZFrameParser.m */; };
+		1828E534223B69FD00AC3871 /* TBZCoreTextData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E533223B69FD00AC3871 /* TBZCoreTextData.m */; };
+		1828E537223B719A00AC3871 /* TBZEncapsulationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1828E536223B719A00AC3871 /* TBZEncapsulationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,16 @@
 		1828E515223B4A6D00AC3871 /* CoreTextDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoreTextDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1828E519223B4A6D00AC3871 /* CoreTextDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreTextDemoUITests.m; sourceTree = "<group>"; };
 		1828E51B223B4A6D00AC3871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1828E528223B4E1500AC3871 /* TBZDisplayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZDisplayView.h; sourceTree = "<group>"; };
+		1828E529223B4E1500AC3871 /* TBZDisplayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZDisplayView.m; sourceTree = "<group>"; };
+		1828E52C223B541600AC3871 /* TBZFrameParserConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZFrameParserConfig.h; sourceTree = "<group>"; };
+		1828E52D223B541600AC3871 /* TBZFrameParserConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZFrameParserConfig.m; sourceTree = "<group>"; };
+		1828E52F223B69B500AC3871 /* TBZFrameParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZFrameParser.h; sourceTree = "<group>"; };
+		1828E530223B69B500AC3871 /* TBZFrameParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZFrameParser.m; sourceTree = "<group>"; };
+		1828E532223B69FD00AC3871 /* TBZCoreTextData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZCoreTextData.h; sourceTree = "<group>"; };
+		1828E533223B69FD00AC3871 /* TBZCoreTextData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZCoreTextData.m; sourceTree = "<group>"; };
+		1828E535223B719A00AC3871 /* TBZEncapsulationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBZEncapsulationView.h; sourceTree = "<group>"; };
+		1828E536223B719A00AC3871 /* TBZEncapsulationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBZEncapsulationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +116,8 @@
 		1828E4F4223B4A6B00AC3871 /* CoreTextDemo */ = {
 			isa = PBXGroup;
 			children = (
+				1828E52B223B53F900AC3871 /* Encapsulation */,
+				1828E527223B4DFD00AC3871 /* Basic */,
 				1828E4F5223B4A6B00AC3871 /* AppDelegate.h */,
 				1828E4F6223B4A6B00AC3871 /* AppDelegate.m */,
 				1828E4F8223B4A6B00AC3871 /* ViewController.h */,
@@ -130,6 +147,30 @@
 				1828E51B223B4A6D00AC3871 /* Info.plist */,
 			);
 			path = CoreTextDemoUITests;
+			sourceTree = "<group>";
+		};
+		1828E527223B4DFD00AC3871 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				1828E528223B4E1500AC3871 /* TBZDisplayView.h */,
+				1828E529223B4E1500AC3871 /* TBZDisplayView.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		1828E52B223B53F900AC3871 /* Encapsulation */ = {
+			isa = PBXGroup;
+			children = (
+				1828E52C223B541600AC3871 /* TBZFrameParserConfig.h */,
+				1828E52D223B541600AC3871 /* TBZFrameParserConfig.m */,
+				1828E52F223B69B500AC3871 /* TBZFrameParser.h */,
+				1828E530223B69B500AC3871 /* TBZFrameParser.m */,
+				1828E532223B69FD00AC3871 /* TBZCoreTextData.h */,
+				1828E533223B69FD00AC3871 /* TBZCoreTextData.m */,
+				1828E535223B719A00AC3871 /* TBZEncapsulationView.h */,
+				1828E536223B719A00AC3871 /* TBZEncapsulationView.m */,
+			);
+			path = Encapsulation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +303,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1828E52A223B4E1500AC3871 /* TBZDisplayView.m in Sources */,
+				1828E534223B69FD00AC3871 /* TBZCoreTextData.m in Sources */,
+				1828E537223B719A00AC3871 /* TBZEncapsulationView.m in Sources */,
+				1828E531223B69B500AC3871 /* TBZFrameParser.m in Sources */,
+				1828E52E223B541600AC3871 /* TBZFrameParserConfig.m in Sources */,
 				1828E4FA223B4A6B00AC3871 /* ViewController.m in Sources */,
 				1828E505223B4A6D00AC3871 /* main.m in Sources */,
 				1828E4F7223B4A6B00AC3871 /* AppDelegate.m in Sources */,
