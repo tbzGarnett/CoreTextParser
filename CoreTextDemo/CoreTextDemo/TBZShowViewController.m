@@ -27,7 +27,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    CGFloat viewWidth = 300;
+    CGFloat viewWidth = [UIScreen mainScreen].bounds.size.width;
     
     TBZFrameParserConfig *config = [[TBZFrameParserConfig alloc] init];
     config.fontSize = 16.0f;

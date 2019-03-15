@@ -34,7 +34,7 @@
             for (NSDictionary *dict in array) {
                 
                 NSString *type = dict[@"type"];
-                
+                //区分文本和图片
                 if ([type isEqualToString:@"txt"]) {
                     
                     NSAttributedString *as = [self parseAttributeContentFromNSDictionary:dict config:config];
@@ -44,7 +44,9 @@
                     
                     //创建TBZCoreImageData,保存图片到imageArray数组中
                     TBZCoreImageData *imageData = [[TBZCoreImageData alloc] init];
+                    //设置图片的名字字符串；
                     imageData.name = dict[@"name"];
+                    //设置图片的插入位置
                     imageData.position = [result length];
                     [imageArray addObject:imageData];
                     
@@ -66,7 +68,7 @@
     
     //获得要绘制的区域的高度
     CGSize restrictSize = CGSizeMake(config.width, CGFLOAT_MAX);
-    CGSize coreTextSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, 0), nil, restrictSize, nil);
+    CGSize coreTextSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter, CFRangeMake(0, [content length]), nil, restrictSize, nil);
     CGFloat textHeight = coreTextSize.height;
     
     //生成CTFrameRef实例
@@ -158,15 +160,6 @@
     return dict;
 }
 
-+ (CTFrameRef)createFrameWithFrameSetter:(CTFramesetterRef)frameSetterRef config:(TBZFrameParserConfig *)config height:(CGFloat)textHeight{
-    CGMutablePathRef path = CGPathCreateMutable();
-    CGPathAddRect(path, NULL, CGRectMake(0, 0, config.width, textHeight));
-    
-    CTFrameRef frame = CTFramesetterCreateFrame(frameSetterRef, CFRangeMake(0, 0), path, NULL);
-    CFRelease(path);
-    return frame;
-}
-
 #pragma mark - 添加设置CTRunDelegate信息的方法
 static CGFloat ascentCallback(void *ref){
     
@@ -188,6 +181,7 @@ static CGFloat widthCallback(void *ref){
     callbacks.getAscent = ascentCallback;
     callbacks.getDescent = descentCallback;
     callbacks.getWidth = widthCallback;
+    //将宽高信息通过delegate返回
     CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)dict);
     
     //使用0xFFFC作为空白占位符
@@ -195,6 +189,7 @@ static CGFloat widthCallback(void *ref){
     NSString *content = [NSString stringWithCharacters:&objectReplacementChar length:1];
     NSDictionary *attributes = [self attributesWithConfig:config];
     NSMutableAttributedString *space = [[NSMutableAttributedString alloc] initWithString:content attributes:attributes];
+    //将CTRunDelegate对象跟CTAttributedString绑定
     CFAttributedStringSetAttribute((CFMutableAttributedStringRef)space, CFRangeMake(0, 1), kCTRunDelegateAttributeName, delegate);
     CFRelease(delegate);
     return space;

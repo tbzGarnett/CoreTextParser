@@ -50,21 +50,26 @@
         if (imageData==nil) {
             break;
         }
+        //获得line对象
         CTLineRef line = (__bridge CTLineRef)lines[i];
         NSArray *runObjArray = (NSArray *)CTLineGetGlyphRuns(line);
+        //遍历该line对象中的run对象
         for (id runObj in runObjArray) {
             CTRunRef run = (__bridge CTRunRef)runObj;
             NSDictionary *runAttributes = (NSDictionary *)CTRunGetAttributes(run);
             CTRunDelegateRef delegate = (__bridge CTRunDelegateRef)[runAttributes valueForKey:(id)kCTRunDelegateAttributeName];
+            //如果该run对象没有CTRunDelegate对象，则结束本次循环，继续下一次循环
             if (delegate == nil) {
                 continue;
             }
-            
+            //得到CTRunDelegate对象绑定的数据，CTRunDelegateRef delegate = CTRunDelegateCreate(&callbacks, (__bridge void *)dict);
             NSDictionary *metaDic = CTRunDelegateGetRefCon(delegate);
+            //验证数据的格式
             if (![metaDic isKindOfClass:[NSDictionary class]]) {
                 continue;
             }
             
+            //计算图片的rect
             CGRect runBounds;
             CGFloat ascent;
             CGFloat descent;
@@ -83,6 +88,7 @@
             imageData.imagePostion = delegateBounds;
             imgIndex ++;
             if (imgIndex == self.imageArray.count) {
+                //所有图片都处理完 结束遍历
                 imageData = nil;
                 break;
             }else{

@@ -21,7 +21,7 @@
     
     //获得要绘制的区域
     CGSize restrictSize = CGSizeMake(config.width, CGFLOAT_MAX);
-    CGSize contentSize = CTFramesetterSuggestFrameSizeWithConstraints(frameSetterRef, CFRangeMake(0, 0), nil, restrictSize, nil);
+    CGSize contentSize = CTFramesetterSuggestFrameSizeWithConstraints(frameSetterRef, CFRangeMake(0, [attString length]), nil, restrictSize, nil);
     CGFloat textHeight = contentSize.height;
     
     //生成CTFrameRef实例
@@ -42,7 +42,7 @@
     
     //获得要绘制的区域
     CGSize restrictSize = CGSizeMake(config.width, CGFLOAT_MAX);
-    CGSize contentSize = CTFramesetterSuggestFrameSizeWithConstraints(frameSetterRef, CFRangeMake(0, 0), nil, restrictSize, nil);
+    CGSize contentSize = CTFramesetterSuggestFrameSizeWithConstraints(frameSetterRef, CFRangeMake(0, [attString length]), nil, restrictSize, nil);
     CGFloat textHeight = contentSize.height;
     
     //生成CTFrameRef实例
@@ -69,7 +69,7 @@
         NSArray *array = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
         if ([array isKindOfClass:[NSArray class]]) {
             for (NSDictionary *dic in array) {
-                NSString *type = dic[@"content"];
+//                NSString *type = dic[@"content"];
                 if ([dic[@"type"] isEqualToString:@"txt"]) {
                     NSAttributedString *as = [self parseAttributeContentFromNSDictionary:dic config:config];
                     [attString appendAttributedString:as];
